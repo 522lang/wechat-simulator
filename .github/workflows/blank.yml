@@ -20,6 +20,10 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      # Windows提交代码会丢失权限，这一步必不可少
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
       - name: Build debug APK
         run: ./gradlew assembleDebug
 
